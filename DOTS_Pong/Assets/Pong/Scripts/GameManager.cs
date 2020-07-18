@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 	public int[] playerScores;
 
 	public Text mainText;
-	public Text[] playerTexts;
+	public Text[] playerTexts;  // 这里的对象引用直接可把数值传递给UI！
 
 	Entity ballEntityPrefab;
 	EntityManager manager;
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 			Angular = float3.zero // 角速度 旋转
 		};
 
-		manager.AddComponentData(ball, velocity);
+		manager.AddComponentData(ball, velocity); // 为实体绑定组件信息
 	}
 }
 
