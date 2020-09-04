@@ -138,6 +138,7 @@ public struct GoInGameRequest : IRpcCommand
     }
 }
 
+// 在 Client World中运行
 // The system that makes the RPC request component transfer
 public class GoInGameRequestSystem : RpcCommandRequestSystem<GoInGameRequest>
 {
@@ -216,6 +217,13 @@ public class GoInGameClientSystem : SystemBase
             entityManager.AddComponent<SendRpcCommandRequestComponent>(req);
             //add the entity with the network components as our target.
             entityManager.SetComponentData(req, new SendRpcCommandRequestComponent { TargetConnection = ent });
+
+            // Camera add directly test 
+/*            Camera camera = new Camera();   // 出现为空的错误    
+            camera.enabled = true;
+            GameManager.Instantiate<Camera>(camera);*/
+
+
         }).Run();
     }
 }
